@@ -1,0 +1,345 @@
+/* ===========================================
+   TUTORIAL 3: CSS GRID LAYOUT
+   
+   Your tasks:
+   1. Define the page grid on .page-layout
+   2. Assign grid-area to each section
+   3. Make .list-section items flow with Flexbox
+   4. Add mobile breakpoint under 48rem
+   =========================================== */
+
+/* External font - add your choice from Google Fonts, Inter will not be graded */
+@import url('https://fonts.googleapis.com/css2?family=Work Sans:wght@400;600&display=swap');
+
+:root {
+  /* Spacing scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Colors - customize these */
+  --color-bg: #93B7BE;
+  --color-surface: #23354d;
+  --color-text: #f1f1f1;
+  --color-text-muted: hsl(210, 10%, 50%);
+  --color-accent: hsl(218, 6%, 62%);
+  --color-border: #75959B;
+  
+  /* Typography */
+  --font-body: 'Work Sans', system-ui, sans-serif;
+  --font-display: 'Work Sans', system-ui, sans-serif; /* Change this */
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 29px;
+    line-height: 1.2;
+    font-weight: 200;
+}
+
+/* ===========================================
+   TASK 1: PAGE GRID STRUCTURE
+   
+   Define your grid here. You need:
+   - grid-template-areas for the layout map
+   - grid-template-columns for column widths
+   - grid-template-rows for row heights
+   - min-height: 100vh to fill the viewport
+   - gap for spacing between regions
+   =========================================== */
+
+.page-layout {
+  display: grid;
+    width: 100%;
+    grid-template-areas:
+    "head head head"
+    "hero hero hero"
+    "main main main"
+    "foot foot foot";
+  grid-template-rows: 0.5fr 1fr 2fr 0.5fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 100vh;
+  gap: 0em;
+}
+
+/* ===========================================
+   TASK 2: ASSIGN GRID AREAS
+   
+   Connect each section to its named area
+   =========================================== */
+
+.site-header {
+  display:grid;
+  grid-area: head;
+  background-color: #425b6f;
+  color: #FDF9DB;
+  align-items: center;
+  padding:var(--spacing-xl)
+}
+
+.hero-section {
+ display:grid;
+ grid-area: hero;
+ background-color: #182a3a;
+ align-content: end;
+ padding: var(--spacing-xl);
+ min-height: 25vh;
+ color: #FDF9DB;
+}
+
+.list-section {
+  display:grid;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: flex-start;
+  grid-area: main;
+  background-color: #FDF9DB;
+  padding: var(--spacing-lg);
+}
+
+.site-footer {
+  display:grid;
+  grid-area: foot;
+  background-color: #23354d;
+  align-content: center;
+  padding: var(--spacing-xl);
+  color: #FDF9DB;
+  /* NOTE: Footer should not exceed main content width */
+}
+
+/* ===========================================
+   TASK 3: FLEXBOX FOR COMPONENTS
+   
+   Use Flexbox to arrange items WITHIN grid regions
+   =========================================== */
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: left;
+  list-style: none;
+  color: #FDF9DB;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--spacing-md);
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links a:hover {
+  color: #FDF9DB;
+  display: flex;
+  gap: var(--spacing-md);
+  list-style: none;
+  padding: 0;
+}
+
+
+/* Make list items flow horizontally on large screens */
+.list-section {
+  /* YOUR CODE: display flex, gap, wrap behavior */
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.list-item {
+  background: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--color-border);
+  /* YOUR CODE: flex-basis or width for sizing */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 450px;
+  height: fit-content;
+}
+
+.main-content {
+  display: flex;
+  gap: 24px;
+  /* YOUR CODE: flex-basis or width for sizing */
+  width: 100%;
+  align-items: flex-start;
+  height: fit-content;
+}
+
+.card-image {
+  display: flex;
+  padding: 0;
+  /* YOUR CODE: flex-basis or width for sizing */
+  width: 96px;
+  height: 96px;
+
+}
+
+.card-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  /* YOUR CODE: flex-basis or width for sizing */
+  padding: 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  /* YOUR CODE: flex-basis or width for sizing */
+  flex: 1 0 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.author {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0rem;
+  /* YOUR CODE: flex-basis or width for sizing */
+  align-items: center;
+}
+
+.author-image {
+  width: 16px;
+  height: 16px;
+  border-radius: 24px;
+}
+
+.title-date {
+  display: flex;
+  flex-direction: column;
+  /* YOUR CODE: flex-basis or width for sizing */
+  max-width: 160px;
+}
+
+.title-date h2 {
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+.title-date p {
+  font-size: 0.9rem;
+  font-weight: 200;
+}
+
+.engagement-bar {
+  display: flex;
+  padding: 0rem;
+  justify-content: space-between;
+  align-items: left;
+  font-size: 12px;
+  /* YOUR CODE: flex-basis or width for sizing */
+  align-self: stretch;
+}
+
+.engagement-metric {
+  display: flex;
+  align-items: center;
+  /* YOUR CODE: flex-basis or width for sizing */
+  gap: 0.75rem;
+  width: fit-content;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 16
+}
+
+/* ===========================================
+   TASK 4: RESPONSIVE BREAKPOINT
+   
+   Under 48rem:
+   - Stack all grid regions vertically
+   - List items should stack vertically too
+   =========================================== */
+
+@media (max-width: 48rem) {
+  .page-layout {
+    /* YOUR CODE: redefine grid-template-areas */
+    /* YOUR CODE: single column layout */
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "head"
+      "hero"
+      "main"
+      "foot";
+  }
+  
+  .list-section {
+    /* YOUR CODE: change flex-direction if needed */
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .list-item {
+    /* YOUR CODE: full width on mobile */
+    width: 100%;
+    max-width: 450px;
+     flex: 0 0 auto;
+  }
+}
+
+/* ===========================================
+   TYPOGRAPHY (provided)
+   =========================================== */
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

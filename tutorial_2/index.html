@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial 3: Grid Layout Mar Hernandez</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined">
+</head>
+<body class="page-layout">
+  <header class="site-header">
+    <nav class="header-nav">
+      <!-- Style this flexible nav component -->
+      <span class="logo">That Astro Girl</span>
+      <ul class="nav-links">
+        <li><a href="#">Chart Creator</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="hero-section">
+    <h1>
+      <i class="material-icons">cloud</i> Zodiac Sign Modalities <i class="material-icons">cloud</i>
+    </h1>
+    <p>There are three main modalities the 12 zodiac signs fall under: cardinal, mutable and fixed.</p> 
+    <p>Learn more about each of them and which modality your sign belongs to.</p>
+  </main>
+  <section class="list-section">
+    <!-- Add your repeating component in here -->
+     <article class="list-item">
+      <div class="main-content">
+        <img class="card-image" src="cardinal.jpeg" alt="Girl with bow and arrow">
+        <div class="description">
+          <div class="header">
+            <div class="title-date">
+              <h2 class="title-date">Cardinal Signs</h2>
+              <p class="title-date">The Initiators</p>
+            </div>
+            <div class="author">
+              <img class="author-image" src="author.jpeg" alt="Author image">
+              <p>Mar H</p>
+            </div>
+          </div>
+          <div class="card-text">
+            <p>Capricorn, Aries, Cancer, Libra.</p>
+          </div>
+        </div>
+      </div>
+      <div class="engagement-bar">
+        <div class="engagement-metric">
+          <span class="material-symbols-outlined">chat_bubble</span>
+          <p>2 comments</p>
+        </div>
+        <div class="engagement-metric">
+          <span class="material-symbols-outlined">favorite</span>
+          <p>10 likes</p>
+        </div>
+        <div class="engagement-metric">
+          <span class="material-symbols-outlined">bookmark</span>
+          <p>10 saves</p>
+        </div>
+      </div>
+    </article>
+    <article class="list-item">
+      <div class="main-content">
+      <img class="card-image" src="fixed.jpeg" alt="Stone illustration">
+      <div class="description">
+          <div class="header">
+            <div class="title-date">
+              <h2>Fixed Signs</h2>
+              <p>The Stabilizers</p>
+            </div>
+            <div class="author">
+              <img class="author-image" src="author.jpeg" alt="Author image">
+              <p>Mar H</p>
+            </div>
+          </div>
+          <div class="card-text">
+            <p>Taurus, Leo, Scorpio, Aquarius.</p>
+          </div>
+        </div>
+      </div>
+        <div class="engagement-bar">
+        <div class="engagement-metric">
+          <span class="material-symbols-outlined">chat_bubble</span>
+          <p>2 comments</p>
+        </div>
+        <div class="engagement-metric">
+          <span class="material-symbols-outlined">favorite</span>
+          <p>10 likes</p>
+        </div>
+        <div class="engagement-metric">
+          <span class="material-symbols-outlined">bookmark</span>
+          <p>10 saves</p>
+        </div>
+      </div>
+    </article>
+    <article class="list-item">
+      <div class="main-content">
+        <img class="card-image" src="mutable.jpeg" alt="Mutable signs illustration">
+        <div class="description">
+          <div class="header">
+            <div class="title-date">
+              <h2>Mutable Signs</h2>
+              <p>The Adapters</p>
+            </div>
+            <div class="author">
+              <img class=author-image src="author.jpeg" alt="Author image">
+              <p>Mar H</p>
+            </div>
+          </div>
+          <div class="card-text">
+            <p>Virgo, Sagittarius, Pisces, Gemini.</p>
+          </div>
+        </div>
+      </div>
+        <div class="engagement-bar">
+        <div class="engagement-metric">
+          <span class="material-symbols-outlined">chat_bubble</span>
+          <p>2 comments</p>
+        </div>
+        <div class="engagement-metric">
+          <span class="material-symbols-outlined">favorite</span>
+          <p>10 likes</p>
+        </div>
+        <div class="engagement-metric">
+          <span class="material-symbols-outlined">bookmark</span>
+          <p>10 saves</p>
+        </div>
+      </div>
+    </article>
+  </section>
+  <footer class="site-footer">
+    <p>Footer content</p>
+  </footer>
+</body>
+</html>
