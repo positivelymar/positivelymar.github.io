@@ -1,0 +1,373 @@
+/* INTENTIONALLY UGLY STARTER STYLES */
+/* These styles are very, very ugly. */
+/* Time to make them attractive, legible, and usable */
+
+:root {
+/* Color Palette: */
+  --color-almond: #f0ead8;
+  --color-brown: #6f4128;
+  --color-sage: #546136;
+  --color-text-muted: hsl(210, 10%, 50%);
+  --color-blue: #aec7e0;
+  --color-border: #6b7B84;
+  --color-dark: #393027;
+
+/* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+}
+
+/* Typography */
+h1 {
+    font-family: "Averia Serif Libre", serif;
+    font-size: 40px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+h2 {
+    font-family: "Averia Serif Libre", serif;
+    font-size: 29px;
+    font-weight: 300;
+    font-style: normal;
+}
+
+h3 {
+    font-family: "Rethink Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    font-family: "Rethink Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.info-item h3,
+.info-item p {
+    margin: 0;
+}
+
+
+/* Page Layout */
+.page-layout {
+  display: grid;
+  width: 100%;
+  grid-template-areas:
+    "head"
+    "banner"
+    "intro"
+    "main"
+    "foot";
+  grid-template-rows: auto auto auto 1fr auto;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+}
+
+/* Grid Areas */
+.site-header {
+  display:grid;
+  grid-area: head;
+  background-color: var(--color-blue);
+  color: var(--color-dark);
+  align-items: center;
+  padding: 0 var(--spacing-xl);
+  height: fit-content;
+}
+
+.banner-section {
+  display: grid;
+  grid-area: banner;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  color:  var(--color-dark);
+  gap: 3rem;              
+}
+
+.intro-section {
+  display:flex;
+  flex-wrap: wrap;
+  grid-area: intro;
+  gap: var(--spacing-lg);
+  justify-content: space-around;
+  align-items: center; 
+  background-color:var(--color-brown);
+  padding: var(--spacing-md);
+  color: var(--color-almond);
+}
+
+.main-section {
+  display:grid;
+  grid-area: main;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: flex-start;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-md);
+}
+
+.main-section {
+  position: relative;
+}
+
+.main-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 0.025rem;
+  background: var(--color-brown);
+}
+
+.site-footer {
+  display:grid;
+  grid-area: foot;
+  align-content: center;
+  background-color: var(--color-brown);
+  color: var(--color-almond);
+  padding: var(--spacing-lg);
+}
+
+/* Elements */
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: left;
+  list-style: none;
+  color: var(--color-brown);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-style: italic;
+  font-family: "Rethink Sans", sans-serif;
+}
+
+.nav-links li a {
+  color: var(--color-brown);
+  display: block;
+  text-decoration: none;           
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.recipe-header {
+    background-color: var(--color-almond);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+    width: 100%;
+    height: fit-content;
+}
+
+.banner-content {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.recipe-title {
+  font-size: 50px;
+  line-height: 1.2;
+  max-width: 25rem;
+  flex-wrap: wrap;
+}
+
+.recipe-description {
+  font-size: 28px;
+  line-height: 1.2;
+  flex-wrap: wrap;
+  max-width: 25rem;
+  flex-wrap: wrap;
+}
+
+.recipe-image {
+    width: 100%;
+    max-height: 30rem;
+    object-fit: cover;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl);
+    background: repeating-linear-gradient(
+        to right,
+        var(--color-blue),
+        var(--color-blue) 0.75rem,
+        var(--color-almond) 0.75rem,
+        var(--color-almond) 1.5rem);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.info-image {
+  align-items: center;
+  width: 3.5rem;
+  max-height: 3.5rem;
+}
+
+.ingredients-section {
+    align-items: flex-start;
+    padding: 0 var(--spacing-lg);
+    max-width: 100%;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.ingredients-list {
+    list-style: circle;                          
+}
+    
+.ingredients-list li {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+}
+
+.ingredients-section h2 {
+    text-align: center;
+    color: var(--color-brown);
+}
+
+.instructions-section  {
+    text-align: left;
+    line-height: 2;
+    max-width: 100%;
+    padding: 0 var(--spacing-lg);
+    justify-content: center;
+}
+
+.instruction-step li{
+    align-items: center;
+}
+
+.instructions-section h2 {
+    text-align: center;
+    color: var(--color-brown);
+}
+
+.recipe-footer {
+    display:grid;
+    grid-area: foot;
+    background-color: var(--color-sage);
+    align-content: center;
+    padding: var(--spacing-xl);
+    color: var(--color-almond);
+}
+
+.tag-list-container {
+    text-align: left; 
+}
+
+.tag-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.tag-list li {
+    margin: 0;
+}
+
+
+.tag-list a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--color-almond);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    background-color: var(--color-brown);
+    border-color: var(--color-almond);
+    border: 0.25rem solid var(--color-almond)
+}
+
+@media (max-width: 48rem) {
+
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+
+
+  .header-nav {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+
+
+  .banner-section {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-image {
+    padding: 0;
+  }
+
+  .intro-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-item {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .main-section {
+    grid-template-columns: 1fr;
+  }
+
+  .main-section::before {
+    display: none;
+  }
+
+  .ingredients-section {
+    border-bottom: 0.025rem solid var(--color-brown);
+    padding-bottom: var(--spacing-md);
+  }
+  
+  .recipe-footer {
+    text-align: center;
+  }
+
+  .tag-list {
+    justify-content: center;
+  }
+}
