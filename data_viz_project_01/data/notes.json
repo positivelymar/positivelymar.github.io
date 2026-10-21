@@ -1,0 +1,5 @@
+[
+  { "src": "assets/gallery/notes-01.JPG", "alt": "Notebook page 1", "title": "Notebook 01", "caption": "Daily perfume logs." },
+  { "src": "assets/gallery/notes-02.JPG", "alt": "Notebook page 2", "title": "Notebook 02", "caption": "Each log shows vital data, including sillage and lasting effect." },
+  { "src": "assets/gallery/notes-03.JPG", "alt": "Notebook page 3", "title": "Notebook 03", "caption": "Each handwritten log was then translated to Excel." }
+]

@@ -1,0 +1,201 @@
+:root {
+  --cream: #F5F0ED;           
+  --font-type: "Courier Prime", monospace;
+  --font-hand: "La Belle Aurore", cursive;
+  --font-serif: "Goudy Bookletter 1911", serif;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+body { display: grid; place-items: center; }
+
+/* The stage keeps the 1280:832 ratio and fits inside any window */
+.stage {
+  --stage-w: min(100vw, calc(100dvh * 1280 / 832));
+  --u: calc(var(--stage-w) / 1280);   /* 1 Figma pixel, scaled */
+  position: relative;
+  width: var(--stage-w);
+  aspect-ratio: 1280 / 832;
+  background: var(--cream);
+}
+
+.btn {
+  padding: 0; border: 0; background: none; cursor: pointer;
+  display: block;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.obj {
+  position: absolute;
+  left: calc((var(--x) + var(--dx, 0)
+        + (var(--w) / 2) * cos(var(--rot))
+        - (var(--h) / 2) * sin(var(--rot))) * var(--u));
+  top:  calc((var(--y) + var(--dy, 0)
+        + (var(--w) / 2) * sin(var(--rot))
+        + (var(--h) / 2) * cos(var(--rot))) * var(--u));
+  width: calc(var(--w) * var(--u));
+  height: auto;
+  transform-origin: 50% 50%;
+  transform:
+    translate(var(--hx, 0px), var(--hy, 0px))
+    translate(-50%, -50%)
+    rotate(calc(var(--rot) + var(--dr, 0deg)))
+    rotate(var(--hr, 0deg))
+    scale(var(--hs, 1));
+  transition: transform .35s cubic-bezier(.34, 1.56, .64, 1), filter .25s ease;
+  z-index: var(--z);
+}
+
+/* tape is purely visual */
+.obj[src*="tape"] { pointer-events: none; }
+.note-text, .caption { pointer-events: none; }
+
+.obj img { display: block; width: 100%; height: auto; }
+
+.btn {
+  padding: 0; border: 0; background: none; cursor: pointer;
+}
+
+/* Live text on the notes */
+.note-text, .caption { position: absolute; }
+
+.note-typewriter .note-text {
+  inset: 14% 4%;
+  font: 400 calc(15 * var(--u)) / 1.6 var(--font-serif);
+  color: #3a3631;
+}
+.note-handwritten .note-text {
+  inset: 12% 10%;
+  font: 400 calc(18 * var(--u)) / 1.5 var(--font-hand);
+  color: #1b1b1b;
+}
+
+.note-sticky { position: absolute; }
+
+.note-sticky .note-text {
+  position: absolute;
+  left: calc(20.5 / 170 * 100%);
+  top: calc(31 / 170 * 100%);
+  width: calc(129 / 170 * 100%);
+  height: calc(108 / 170 * 100%);
+  display: flex;
+  align-items: center;      /* matches your Figma alignment */
+  text-align: left;
+  pointer-events: none;
+  font: 400 calc(13 * var(--u)) / 1.3 var(--font-hand);
+  color: #1b1b1b;
+}
+
+.polaroid-02 .caption {
+  position: absolute;
+  left: calc(12 / 217 * 100%);
+  right: calc(12 / 217 * 100%);
+  top: calc(232 / 285 * 100%);
+  bottom: calc(12 / 285 * 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font: 400 calc(13 * var(--u)) / 1.2 var(--font-type);
+  color: #3a3631;
+}
+
+.film-frame {
+  aspect-ratio: 597 / 811;
+  background: #121212;                       /* the frame body */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+}
+
+.film-frame .slots {
+  position: absolute;
+  left:   calc(24 / 597 * 100%);
+  right:  calc(24 / 597 * 100%);
+  top:    calc(16 / 811 * 100%);
+  bottom: calc(16 / 811 * 100%);
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: calc(10 / 779 * 100%);
+  overflow: hidden;
+}
+
+.film-frame .slot {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+/* ---------- Hover: playful but controlled ---------- */
+.obj:not([src*="tape"]):hover,
+.btn:focus-visible {
+  --hy: -8px;
+  --hs: 1.04;
+  --hr: 2deg;
+  filter: drop-shadow(0 12px 12px rgba(0, 0, 0, .18));
+}
+.obj:not([src*="tape"]):nth-child(even):hover { --hr: -2deg; }
+
+.btn:focus-visible { outline: 2px dashed #3a3631; outline-offset: 6px; }
+
+/* ---------- Pop-up ---------- */
+dialog#modal {
+  border: 0; padding: 0; background: transparent;
+  max-width: 96vw; max-height: 94vh; overflow: visible;
+}
+dialog#modal::backdrop { background: rgba(30, 26, 22, .72); }
+
+.modal-shell {
+  position: relative;
+  background: var(--cream);
+  padding: 14px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+}
+.modal-close {
+  position: absolute; top: -14px; right: -14px;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 0; background: #E8DEC4; cursor: pointer;
+  font: 400 20px var(--font-type); color: #3a3631;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+}
+
+.video-wrap {
+  width: min(88vw, calc(78vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+.gallery { width: min(88vw, 900px); text-align: center; }
+.gallery img {
+  display: block; width: 100%; max-height: 68vh; object-fit: contain;
+  background: #fff;
+}
+.gallery .g-title { font: 400 18px var(--font-serif); margin-top: 12px; color: #3a3631; }
+.gallery .g-caption { font: 400 13px / 1.5 var(--font-type); color: #3a3631; margin-top: 4px; }
+.gallery .g-nav { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 12px; }
+.gallery .g-nav button {
+  border: 1px solid rgba(0, 0, 0, .15); background: #E8DEC4; cursor: pointer;
+  font: 400 14px var(--font-type); padding: 6px 14px; color: #3a3631;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .obj { transition: none; }
+  .obj:hover { --hy: 0px; --hs: 1; --hr: 0deg; }
+}
+
+/* Debug: add class="debug" to <body> to overlay your Figma PNG at 50% */
+.debug .stage::after {
+  content: "";
+  position: absolute; inset: 0; z-index: 999; pointer-events: none;
+  background: url(../assets/reference.png) center / 100% 100% no-repeat;
+  opacity: .5;
+}

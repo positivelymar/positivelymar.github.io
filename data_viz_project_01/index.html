@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Viz Board</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Goudy+Bookletter+1911&family=La+Belle+Aurore&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="stage">
+
+    <img class="obj deco" src="assets/deco-teacup.png" alt="" style="--x:-51;--y:-21;--w:359;--h:343;--rot:0deg;--z:16">
+    <img class="obj deco" src="assets/tape-01.png" alt="" style="--x:931;--y:288;--w:179;--h:48;--rot:0deg;--z:15">
+    <img class="obj deco" src="assets/deco-babys-breath.png" alt="" style="--x:375.31;--y:93.85;--w:201;--h:212;--rot:151.81deg;--z:14">
+    
+    <button class="obj btn film-frame" data-action="gallery-viz" aria-label="Open gallery of all visualizations" style="--x:1218.64;--y:70;--w:238;--h:323;--rot:10.82deg;--z:13">
+        <div class="slots">
+            <div class="vintage"><img class="slot" src="assets/gallery/viz-01.png" alt=""></div>
+            <div class="vintage"><img class="slot" src="assets/gallery/viz-02.png" alt=""></div>
+</div>
+        </div>
+    </button>
+
+    <button class="obj btn" data-action="video-01" aria-label="Play Visualization 01" style="--x:443.01;--y:-73;--w:227;--h:173;--rot:14.4deg;--z:12">
+      <img src="assets/btn-polaroid-01.png" alt="">
+    </button>
+
+    <button class="obj btn" data-action="video-03" aria-label="Play Visualization 03" style="--x:1144.2;--y:383;--w:260;--h:391;--rot:15deg;--z:11">
+        <img src="assets/deco-perfume-02.png" alt="">
+    </button>
+
+    <img class="obj deco" src="assets/deco-perfume-03.png" alt="" style="--x:201.92;--y:162;--w:314.99;--h:419.28;--rot:69.19deg;--z:10">
+    <img class="obj deco" src="assets/deco-perfume-01.png" alt="" style="--x:773;--y:-123.88;--w:355.32;--h:324.36;--rot:-2.92deg;--z:9">
+
+    <button class="obj btn" data-action="gallery-notes" aria-label="Open gallery of notebook notes" style="--x:13.89;--y:442;--w:490;--h:490;--rot:14.4deg;--z:8">
+      <img src="assets/btn-notebook.png" alt="">
+    </button>
+
+    <button class="obj btn note-sticky" data-action="download-tableau" aria-label="Download Tableau file" style="--x:979;--y:648;--w:170;--h:170;--rot:-9.14deg;--z:7">
+      <img src="assets/btn-note-sticky.png" alt="">
+      <span class="note-text">Click to see the original Tableau version of the main visualizations.</span>
+    </button>
+
+    <div class="obj note note-handwritten" style="--x:481;--y:442;--w:277;--h:277;--rot:0deg;--z:6">
+      <img src="assets/note-handwritten.png" alt="">
+      <p class="note-text">Every item in this gallery responds in some way. They might hide items within, you just have to click to find out.</p>
+    </div>
+
+    <img class="obj deco" src="assets/tape-02.png" alt="" style="--x:235;--y:179.08;--w:180;--h:49;--rot:-10.27deg;--z:5">
+
+    <button class="obj btn polaroid-02" data-action="video-02" aria-label="Play Visualization 02" style="--x:910;--y:312;--w:217;--h:285;--rot:0deg;--z:4">
+      <img src="assets/btn-polaroid-02.png" alt="">
+      <span class="caption">A Perfume Sillage Story</span>
+    </button>
+
+    <button class="obj btn" data-action="video-main" aria-label="Play the main cinematic video" style="--x:83;--y:219.71;--w:480;--h:400;--rot:-9.44deg;--z:3">
+      <img src="assets/btn-photo-river.png" alt="">
+    </button>
+
+    <div class="obj note note-typewriter" style="--x:563;--y:168;--w:590;--h:154;--rot:0deg;--z:2">
+      <img src="assets/note-typewriter.png" alt="">
+      <p class="note-text">This is the culmination of a two week daily compilation and archival of perfume usage data. The main purpose is to showcase visual representations of the correlation between variables, perfume usage, perfume satisfaction and purchase probability. Ultimately, it's just my perfume story.</p>
+    </div>
+    
+    <img class="obj deco" src="assets/btn-polaroid-03.png" alt="" style="--x:293;--y:605;--w:158;--h:208;--rot:0deg;--z:1">
+
+  </main>
+  <dialog id="modal" aria-label="Viewer">
+  <div class="modal-shell">
+    <button class="modal-close" aria-label="Close">×</button>
+    <div class="modal-body"></div>
+  </div>
+</dialog>
+  <script src="script.js" defer></script>
+</body>
+</html>

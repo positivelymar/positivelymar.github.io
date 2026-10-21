@@ -1,0 +1,5 @@
+[
+  { "src": "assets/gallery/viz-01.png", "alt": "Visualization 1", "title": "Visualization 01", "caption": "Note evolution between early and late September." },
+  { "src": "assets/gallery/viz-02.png", "alt": "Visualization 2", "title": "Visualization 02", "caption": "Satisfaction Comparison Dispersion Scatter Plot Chart." },
+  { "src": "assets/gallery/viz-03.png", "alt": "Visualization 3", "title": "Visualization 03", "caption": "Activity and Fragrance Profile Heatmap." }
+]
